@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Portfolio | Web Developer</title>
+    <meta name="description" content="View my portfolio, my web development skills, and the projects I have created.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#6366f1",
+                        dark: "#111827"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur border-b border-slate-800">
+        <nav class="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
+
+            <a href="#home" class="text-2xl font-extrabold">
+                <span class="text-indigo-400">&lt;</span>
+                MyPortfolio
+                <span class="text-indigo-400">/&gt;</span>
+            </a>
+
+            <button id="menuButton"
+                class="md:hidden text-3xl text-indigo-400"
+                aria-label="Open menu"
+                aria-expanded="false">
+                ☰
+            </button>
+
+            <div id="navLinks"
+                class="hidden md:flex flex-col md:flex-row gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-slate-950 md:bg-transparent p-5 md:p-0 border-b border-slate-800 md:border-0">
+
+                <a href="#home" class="hover:text-indigo-400">Home</a>
+                <a href="#about" class="hover:text-indigo-400">About Me</a>
+                <a href="#skills" class="hover:text-indigo-400">Skills</a>
+                <a href="#projects" class="hover:text-indigo-400">Projects</a>
+                <a href="#contact"
+                    class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-lg text-center">
+                    Contact Me
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="home"
+            class="max-w-6xl mx-auto px-5 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+
+            <div>
+                <p class="text-indigo-400 font-semibold mb-4">
+                    HELLO, WELCOME!
+                </p>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                    I am a <span class="gradient-text">Web Developer</span>
+                    building websites.
+                </h1>
+
+                <p class="text-slate-400 text-lg leading-8 mt-6">
+                    I build modern, easy-to-use, and responsive websites that look great on both mobile phones and computers.
+                    I love learning technology and solving problems through code.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <a href="#projects"
+                        class="bg-indigo-600 hover:bg-indigo-700 px-6 py-3 rounded-lg font-semibold">
+                        View Projects →
+                    </a>
+
+                    <a href="#contact"
+                        class="border border-slate-600 hover:border-indigo-400 px-6 py-3 rounded-lg font-semibold">
+                        Contact Me
+                    </a>
+                </div>
+
+                <div class="flex gap-8 mt-10">
+                    <div>
+                        <h3 class="text-2xl font-bold text-indigo-400">HTML</h3>
+                        <p class="text-slate-500 text-sm">Structure</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-indigo-400">CSS</h3>
+                        <p class="text-slate-500 text-sm">Design</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-indigo-400">JS</h3>
+                        <p class="text-slate-500 text-sm">Interaction</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROFILE IMAGE -->
+            <div class="flex justify-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-indigo-600 rounded-full blur-3xl opacity-20"></div>
+
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-indigo-500 overflow-hidden bg-slate-800 flex items-center justify-center">
+                        <!-- Add your image here in images/profile.jpg -->
+                        <img
+                            src="./image/profile.jpg"
+                            alt="My photo"
+                            class="w-full h-full object-cover"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                        <div class="hidden w-full h-full items-center justify-center flex-col text-center">
+                            <span class="text-7xl text-indigo-400">👨‍💻</span>
+                            <p class="text-slate-400 mt-3">Your photo</p>
+                        </div>
+                    </div>
+
+                    <div class="absolute -bottom-3 -right-3 bg-slate-800 border border-slate-700 px-5 py-3 rounded-xl shadow-xl">
+                        <p class="text-sm text-green-400">● Open to opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="bg-slate-900 py-20">
+            <div class="max-w-5xl mx-auto px-5">
+
+                <div class="text-center mb-12">
+                    <p class="text-indigo-400 font-semibold">LEARN MORE</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3">
+                        About Me
+                    </h2>
+                </div>
+
+                <div class="bg-slate-800/70 border border-slate-700 rounded-2xl p-7 md:p-10">
+                    <p class="text-slate-300 leading-8 text-lg">
+                        I am someone who loves technology and building websites. I am learning how to use HTML, CSS, JavaScript, and React to build projects that help people in their everyday lives.
+                    </p>
+
+                    <p class="text-slate-300 leading-8 text-lg mt-5">
+                        My goal is to continuously grow my skills, collaborate with others on new projects, and create software that provides real value to users.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-5 mt-8">
+                        <div class="bg-slate-900 p-5 rounded-xl">
+                            <span class="text-2xl">🎯</span>
+                            <h3 class="font-bold mt-3">My Goal</h3>
+                            <p class="text-slate-400 mt-2">
+                                To build modern websites that solve real-world problems.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 p-5 rounded-xl">
+                            <span class="text-2xl">🚀</span>
+                            <h3 class="font-bold mt-3">My Vision</h3>
+                            <p class="text-slate-400 mt-2">
+                                To keep learning and excel as a software developer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="max-w-6xl mx-auto px-5 py-20">
+
+            <div class="text-center mb-12">
+                <p class="text-indigo-400 font-semibold">MY SKILLS</p>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3">
+                    Technologies & Skills
+                </h2>
+                <p class="text-slate-400 mt-4">
+                    The technologies I use to build projects.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl text-center hover:border-orange-400">
+                    <div class="text-4xl mb-4">🌐</div>
+                    <h3 class="font-bold text-lg">HTML5</h3>
+                    <p class="text-slate-400 text-sm mt-2">Web structure</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl text-center hover:border-blue-400">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="font-bold text-lg">CSS3</h3>
+                    <p class="text-slate-400 text-sm mt-2">Styling & responsive design</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl text-center hover:border-yellow-400">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="font-bold text-lg">JavaScript</h3>
+                    <p class="text-slate-400 text-sm mt-2">Interactive websites</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl text-center hover:border-cyan-400">
+                    <div class="text-4xl mb-4">⚛️</div>
+                    <h3 class="font-bold text-lg">React</h3>
+                    <p class="text-slate-400 text-sm mt-2">Reusable UI components</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl text-center hover:border-cyan-400">
+                    <div class="text-4xl mb-4">💨</div>
+                    <h3 class="font-bold text-lg">Tailwind CSS</h3>
+                    <p class="text-slate-400 text-sm mt-2">Modern UI design</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl text-center hover:border-gray-400">
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="font-bold text-lg">Git & GitHub</h3>
+                    <p class="text-slate-400 text-sm mt-2">Version control</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="bg-slate-900 py-20">
+            <div class="max-w-6xl mx-auto px-5">
+
+                <div class="text-center mb-12">
+                    <p class="text-indigo-400 font-semibold">MY WORK</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3">
+                        Featured Projects
+                    </h2>
+                    <p class="text-slate-400 mt-4">
+                        Here are some examples of projects you can showcase in your portfolio.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+                    <!-- PROJECT 1 -->
+                    <article class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
+
+                        <div class="h-44 bg-gradient-to-br from-indigo-600 to-blue-900 flex items-center justify-center">
+                            <span class="text-6xl">💼</span>
+                        </div>
+
+                        <div class="p-6">
+                            <span class="text-indigo-400 text-sm font-semibold">
+                                HTML · CSS · JavaScript
+                            </span>
+
+                            <h3 class="text-xl font-bold mt-3">AkaziKacu</h3>
+
+                            <p class="text-slate-400 leading-7 mt-3">
+                                A website helping job seekers search for employment and discover opportunities in Rwanda.
+                            </p>
+
+                            <a href="https://github.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-block mt-5 text-indigo-400 hover:text-indigo-300 font-semibold">
+                                View project →
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 2 -->
+                    <article class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
+
+                        <div class="h-44 bg-gradient-to-br from-purple-600 to-pink-900 flex items-center justify-center">
+                            <span class="text-6xl">📊</span>
+                        </div>
+
+                        <div class="p-6">
+                            <span class="text-purple-400 text-sm font-semibold">
+                                React · Tailwind CSS
+                            </span>
+
+                            <h3 class="text-xl font-bold mt-3">DashLab Dashboard</h3>
+
+                            <p class="text-slate-400 leading-7 mt-3">
+                                A dashboard displaying data, orders, products, and analytics in an intuitive interface.
+                            </p>
+
+                            <a href="https://github.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-block mt-5 text-indigo-400 hover:text-indigo-300 font-semibold">
+                                View project →
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 3 -->
+                    <article class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
+
+                        <div class="h-44 bg-gradient-to-br from-emerald-600 to-teal-900 flex items-center justify-center">
+                            <span class="text-6xl">🗑️</span>
+                        </div>
+
+                        <div class="p-6">
+                            <span class="text-emerald-400 text-sm font-semibold">
+                                React · JavaScript
+                            </span>
+
+                            <h3 class="text-xl font-bold mt-3">Dustbin App</h3>
+
+                            <p class="text-slate-400 leading-7 mt-3">
+                                A practice application demonstrating state management and button event handling in React.
+                            </p>
+
+                            <a href="https://github.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-block mt-5 text-indigo-400 hover:text-indigo-300 font-semibold">
+                                View project →
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="max-w-4xl mx-auto px-5 py-20 text-center">
+
+            <p class="text-indigo-400 font-semibold">LET'S WORK TOGETHER</p>
+
+            <h2 class="text-3xl md:text-5xl font-extrabold mt-4">
+                Have a project in mind?
+                <span class="gradient-text">Let's talk!</span>
+            </h2>
+
+            <p class="text-slate-400 leading-8 max-w-2xl mx-auto mt-6">
+                If you need a website, have a project, or want to collaborate on tech opportunities, feel free to send me a message.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+
+                <!-- Replace with your email -->
+                <a href="mailto:your-email@example.com"
+                    class="bg-indigo-600 hover:bg-indigo-700 px-7 py-3 rounded-lg font-bold">
+                    ✉ Email Me
+                </a>
+
+                <!-- Add your GitHub link -->
+                <a href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="border border-slate-600 hover:border-indigo-400 px-7 py-3 rounded-lg font-bold">
+                    GitHub ↗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 py-7">
+        <div class="max-w-6xl mx-auto px-5 text-center">
+            <p class="text-slate-400">
+                © <span id="year"></span> MyPortfolio.
+                Made with love ❤️
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+        menuButton.addEventListener("click", function () {
+            navLinks.classList.toggle("hidden");
+
+            const isExpanded = !navLinks.classList.contains("hidden");
+
+            menuButton.setAttribute("aria-expanded", isExpanded);
+            menuButton.textContent = isExpanded ? "✕" : "☰";
+        });
+
+        document.querySelectorAll("#navLinks a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.add("hidden");
+                menuButton.textContent = "☰";
+                menuButton.setAttribute("aria-expanded", "false");
+            });
+        });
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
+
